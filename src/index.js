@@ -1,1 +1,5 @@
-import './style.css'
+import './style.css';
+
+import setupForm from './form';
+
+setupForm();
