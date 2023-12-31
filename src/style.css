@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.invalid {
+  border-color: red;
+}
+
 .input-form {
   display: flex;
   flex-direction: column;

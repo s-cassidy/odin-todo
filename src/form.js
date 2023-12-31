@@ -2,8 +2,10 @@ function setupForm() {
   const form = document.getElementById('todo-form');
   const todoTitleInput = document.getElementById('todo-title');
   const todoDescriptionInput = document.getElementById('todo-description');
-  const todoPrioritySelection = document.getElementById('todo-priority');
-  const submitButton = document.getElementById('submit-button');
+
+  todoTitleInput.addEventListener('input', () =>
+    todoTitleInput.classList.remove('invalid')
+  );
 
   const clearForm = function clearForm() {
     todoTitleInput.value = '';
@@ -12,16 +14,20 @@ function setupForm() {
 
   const runSubmit = function runSubmit() {
     if (todoTitleInput.validity.valueMissing) {
-      console.log('Nothing in title');
+      todoTitleInput.classList.add('invalid');
+      return null;
     }
-
     const todoEntry = new FormData(form);
     clearForm();
-    console.log(todoEntry);
     return todoEntry;
   };
 
-  submitButton.addEventListener('click', runSubmit);
+  return {
+    form,
+    todoTitleInput,
+    clearForm,
+    runSubmit,
+  };
 }
 
 export default setupForm;
