@@ -5,25 +5,26 @@
   <title></title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/style.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
 </head>
 
 <body>
 
   <div class="content">
-    <form action="" method="post">
+    <form id="todo-form" class="input-form">
       <label for="todo-title">Title</label>
-      <input type="text" name="todo-title" id="todo-title" value="" placeholder="Feed the budgie">
+      <input type="text" name="title" id="todo-title" value="" placeholder="Feed the budgie" required>
       <label for="todo-description">Description</label>
-      <input type="text" name="todo-description" id="todo-description" value="">
-      <label for="priority">Priority</label>
-      <select name="priority" id="priority">
-        <option value="A">A</option>
-        <option value="B">B</option>
-        <option value="C">C</option>
-        <option value="D">D</option>
-      </select>
-      <button type="submit">Submit</button>
+      <input type="text" name="description" id="todo-description" value="">
+      <span <label for="todo-priority">Priority</label>
+        <select name="priority" id="todo-priority">
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+        </select>
+        <button type="button" id="submit-button">Submit</button>
+      </span>
     </form>
   </div>
 
