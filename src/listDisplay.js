@@ -1,5 +1,6 @@
 const constructDOMListEntry = function constructDOMListEntry(todo) {
   const listItem = document.createElement('li');
+  const itemContainer = document.createElement('div');
   const checkboxContainer = document.createElement('span');
   const checkbox = document.createElement('input');
   const priorityContainer = document.createElement('span');
@@ -25,18 +26,19 @@ const constructDOMListEntry = function constructDOMListEntry(todo) {
   textContainer.appendChild(titleContainer);
   textContainer.appendChild(descriptionContainer);
 
-  deleteButton.textContent('Delete');
+  deleteButton.textContent = 'Delete';
   buttonsContainer.appendChild(deleteButton);
 
-  listItem.appendChild(checkboxContainer);
-  listItem.appendChild(priorityContainer);
-  listItem.appendChild(textContainer);
-  listItem.appendChild(buttonsContainer);
+  itemContainer.appendChild(checkboxContainer);
+  itemContainer.appendChild(priorityContainer);
+  itemContainer.appendChild(textContainer);
+  itemContainer.appendChild(buttonsContainer);
+  listItem.appendChild(itemContainer);
 
   return listItem;
 };
 
-const buildList = function buildList(project) {
+const buildDOMList = function buildDOMList(project) {
   const listDOMElement = document.createElement('ul');
   project.todoList.forEach((todo) => {
     const listItem = constructDOMListEntry(todo);
@@ -44,3 +46,12 @@ const buildList = function buildList(project) {
   });
   return listDOMElement;
 };
+
+const displayProjectList = function displayProjectList(project) {
+  const listContainer = document.querySelector('.list-display');
+  listContainer.textContent = '';
+  const listContent = buildDOMList(project);
+  listContainer.appendChild(listContent);
+};
+
+export default displayProjectList;

@@ -1,4 +1,4 @@
-class todoItem {
+class TodoItem {
   constructor(todoFormData) {
     this.title = todoFormData.get('title');
     this.description = todoFormData.get('description');
@@ -8,4 +8,4 @@ class todoItem {
   }
 }
 
-export default todoItem;
+export default TodoItem;
