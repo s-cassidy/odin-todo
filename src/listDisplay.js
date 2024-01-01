@@ -54,11 +54,11 @@ const buildDOMList = function buildDOMList(project) {
   return listDOMElement;
 };
 
-const displayProjectList = function displayProjectList(project) {
+const displayTodoList = function displayTodoList(project) {
   const listContainer = document.querySelector('.list-container');
   listContainer.textContent = '';
   const listContent = buildDOMList(project);
   listContainer.appendChild(listContent);
 };
 
-export default displayProjectList;
+export default displayTodoList;
