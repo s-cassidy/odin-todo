@@ -23,9 +23,6 @@ function setupForm() {
   };
 
   return {
-    form,
-    todoTitleInput,
-    clearForm,
     runSubmit,
   };
 }
