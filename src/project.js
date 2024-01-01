@@ -1,3 +1,5 @@
+import displayProjectList from './listDisplay';
+
 class Project {
   constructor(name = 'Default') {
     this.name = name;
@@ -7,14 +9,12 @@ class Project {
 
   addTodo(todo) {
     this.todoList.push(todo);
+    displayProjectList(this);
   }
 
   removeTodo(todoId) {
     this.todoList = this.todoList.filter((entry) => entry.id !== todoId);
-  }
-
-  showTodos() {
-    console.log(this.todoList);
+    displayProjectList(this);
   }
 }
 

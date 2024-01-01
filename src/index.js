@@ -3,7 +3,6 @@ import './style.css';
 import setupForm from './form';
 import Project from './project';
 import TodoItem from './todoitem';
-import displayProjectList from './listDisplay';
 
 const form = setupForm();
 const submitButton = document.getElementById('submit-button');
@@ -14,5 +13,4 @@ submitButton.addEventListener('click', () => {
     const todo = new TodoItem(todoFormData);
     defaultProject.addTodo(todo);
   }
-  displayProjectList(defaultProject);
 });

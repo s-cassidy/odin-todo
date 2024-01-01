@@ -1,4 +1,4 @@
-const constructDOMListEntry = function constructDOMListEntry(todo) {
+const constructDOMListEntry = function constructDOMListEntry(todo, project) {
   const listItem = document.createElement('li');
   const itemContainer = document.createElement('div');
   const checkboxContainer = document.createElement('span');
@@ -12,6 +12,9 @@ const constructDOMListEntry = function constructDOMListEntry(todo) {
   const descriptionContainer = document.createElement('div');
   const buttonsContainer = document.createElement('span');
   const deleteButton = document.createElement('button');
+
+  textContainer.classList.add('todo-text-container');
+  titleText.classList.add('todo-title');
 
   checkbox.setAttribute('type', 'checkbox');
   checkboxContainer.appendChild(checkbox);
@@ -27,12 +30,15 @@ const constructDOMListEntry = function constructDOMListEntry(todo) {
   textContainer.appendChild(descriptionContainer);
 
   deleteButton.textContent = 'Delete';
+  deleteButton.addEventListener('click', () => project.removeTodo(todo.id));
   buttonsContainer.appendChild(deleteButton);
 
   itemContainer.appendChild(checkboxContainer);
   itemContainer.appendChild(priorityContainer);
   itemContainer.appendChild(textContainer);
   itemContainer.appendChild(buttonsContainer);
+
+  itemContainer.classList.add('todo-item-container');
   listItem.appendChild(itemContainer);
 
   return listItem;
@@ -40,15 +46,16 @@ const constructDOMListEntry = function constructDOMListEntry(todo) {
 
 const buildDOMList = function buildDOMList(project) {
   const listDOMElement = document.createElement('ul');
+  listDOMElement.classList.add('todo-list');
   project.todoList.forEach((todo) => {
-    const listItem = constructDOMListEntry(todo);
+    const listItem = constructDOMListEntry(todo, project);
     listDOMElement.appendChild(listItem);
   });
   return listDOMElement;
 };
 
 const displayProjectList = function displayProjectList(project) {
-  const listContainer = document.querySelector('.list-display');
+  const listContainer = document.querySelector('.list-container');
   listContainer.textContent = '';
   const listContent = buildDOMList(project);
   listContainer.appendChild(listContent);
