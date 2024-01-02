@@ -1,5 +1,5 @@
-import Project from './project';
 import displayTodoList from './listDisplay';
+import ProjectStorage from './store';
 
 class ProjectsList {
   constructor() {
@@ -10,6 +10,7 @@ class ProjectsList {
 
   removeProject = function removeProject(idForRemoval) {
     this.list = this.list.filter((project) => project.id !== idForRemoval);
+    new ProjectStorage().save(this.list);
   };
 
   changeCurrentProject = function changeCurrentProject(newCurrentId) {
@@ -25,6 +26,7 @@ class ProjectsList {
     const newProject = new Project(name);
     this.list = [...this.list, newProject];
     this.changeCurrentProject(newProject.id);
+    new ProjectStorage().save(this.list);
     return newProject;
   };
 }

@@ -1,3 +1,7 @@
+import ProjectStorage from './store';
+import projects from './projectsList';
+import displayTodoList from './listDisplay';
+
 const constructDOMListEntry = function constructDOMListEntry(todo, project) {
   const listItem = document.createElement('li');
   const itemContainer = document.createElement('div');
@@ -45,7 +49,11 @@ const constructDOMListEntry = function constructDOMListEntry(todo, project) {
   textContainer.appendChild(descriptionContainer);
 
   deleteButton.textContent = 'Delete';
-  deleteButton.addEventListener('click', () => project.removeTodo(todo.id));
+  deleteButton.addEventListener('click', () => {
+    project.removeTodo(todo.id);
+    displayTodoList(project);
+    new ProjectStorage().save(projects.list);
+  });
   buttonsContainer.appendChild(deleteButton);
 
   itemContainer.appendChild(checkboxContainer);
