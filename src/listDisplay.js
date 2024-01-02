@@ -19,6 +19,21 @@ const constructDOMListEntry = function constructDOMListEntry(todo, project) {
   checkbox.setAttribute('type', 'checkbox');
   checkboxContainer.appendChild(checkbox);
 
+  checkbox.addEventListener('change', (e) => {
+    if (e.target.checked) {
+      todo.setDone();
+      listItem.classList.add('task-done');
+    } else {
+      todo.setNotDone();
+      listItem.classList.remove('task-done');
+    }
+  });
+
+  if (todo.isDone) {
+    checkbox.checked = true;
+    listItem.classList.add('task-done');
+  }
+
   priorityContainer.appendChild(priorityText);
 
   titleText.textContent = todo.title;

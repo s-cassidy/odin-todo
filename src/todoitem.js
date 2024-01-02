@@ -6,6 +6,14 @@ class TodoItem {
     this.id = Math.random().toString(16).slice(2);
     this.isDone = false;
   }
+
+  setDone = function setDone() {
+    this.isDone = true;
+  };
+
+  setNotDone = function setNotDone() {
+    this.isDone = false;
+  };
 }
 
 export default TodoItem;
