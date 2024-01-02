@@ -1,3 +1,6 @@
+import projects from './projectsList';
+import TodoItem from './todoitem';
+
 function setupForm() {
   const form = document.getElementById('todo-form');
   const todoTitleInput = document.getElementById('todo-title');
@@ -22,9 +25,14 @@ function setupForm() {
     return todoEntry;
   };
 
-  return {
-    runSubmit,
-  };
+  const submitButton = document.getElementById('submit-button');
+  submitButton.addEventListener('click', () => {
+    const todoFormData = runSubmit();
+    if (todoFormData) {
+      const todo = new TodoItem(todoFormData);
+      projects.currentProject.addTodo(todo);
+    }
+  });
 }
 
 export default setupForm;

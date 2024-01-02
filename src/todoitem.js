@@ -1,3 +1,5 @@
+import projects from './projectsList';
+
 class TodoItem {
   constructor(todoFormData) {
     this.title = todoFormData.get('title');

@@ -33,7 +33,6 @@ const constructDOMListEntry = function constructDOMListEntry(todo, project) {
     checkbox.checked = true;
     listItem.classList.add('task-done');
   }
-
   priorityText.textContent = todo.priority;
   priorityContainer.appendChild(priorityText);
 
