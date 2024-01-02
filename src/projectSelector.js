@@ -15,16 +15,26 @@ export const updateProjectsMenu = function updateProjectsMenu() {
 export const initProjectsMenu = function initProjectsMenu() {
   const displayNewProjectInput = function displayNewProjectInput() {
     const newProjectForm = document.querySelector('.new-project-form');
-    const newProjectName = document.createElement('input');
+    const newProjectNameLabel = document.createElement('label');
+    const newProjectNameInput = document.createElement('input');
     const newProjectSubmitButton = document.createElement('button');
+
     newProjectSubmitButton.textContent = 'Add new project';
-    newProjectForm.appendChild(newProjectName);
+    newProjectNameLabel.textContent = 'Project name:';
+    newProjectNameLabel.setAttribute('for', 'new-project-name');
+    newProjectNameInput.setAttribute('id', 'new-project-name');
+    newProjectForm.appendChild(newProjectNameLabel);
+    newProjectForm.appendChild(newProjectNameInput);
     newProjectForm.appendChild(newProjectSubmitButton);
+
     newProjectSubmitButton.addEventListener('click', () => {
-      if (newProjectName.value !== '') {
-        projects.createProject(newProjectName.value);
+      if (newProjectNameInput.value !== '') {
+        const newProject = projects.createProject(
+          newProjectNameInput.value
+        );
         newProjectForm.textContent = '';
         updateProjectsMenu();
+        projectsMenu.value = newProject.id;
       }
     });
   };

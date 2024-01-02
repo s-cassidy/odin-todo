@@ -8,10 +8,6 @@ class ProjectsList {
     this.currentProject = defaultProject;
   }
 
-  createProject = function createProject(name) {
-    this.list = [...this.list, new Project(name)];
-  };
-
   removeProject = function removeProject(idForRemoval) {
     this.list = this.list.filter((project) => project.id !== idForRemoval);
   };
@@ -23,6 +19,13 @@ class ProjectsList {
         displayTodoList(this.currentProject);
       }
     });
+  };
+
+  createProject = function createProject(name) {
+    const newProject = new Project(name);
+    this.list = [...this.list, newProject];
+    this.changeCurrentProject(newProject.id);
+    return newProject;
   };
 }
 
