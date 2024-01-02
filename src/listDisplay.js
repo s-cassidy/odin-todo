@@ -34,6 +34,7 @@ const constructDOMListEntry = function constructDOMListEntry(todo, project) {
     listItem.classList.add('task-done');
   }
 
+  priorityText.textContent = todo.priority;
   priorityContainer.appendChild(priorityText);
 
   titleText.textContent = todo.title;
