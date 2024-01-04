@@ -1,6 +1,5 @@
 import ProjectStorage from './store';
 import projects from './projectsList';
-import displayTodoList from './listDisplay';
 
 const constructDOMListEntry = function constructDOMListEntry(todo, project) {
   const listItem = document.createElement('li');
@@ -77,11 +76,13 @@ const buildDOMList = function buildDOMList(project) {
   return listDOMElement;
 };
 
-const displayTodoList = function displayTodoList(project) {
+// This function is hoisted as it is passed as a callback
+// to the event listener on the the delete button
+function displayTodoList(project) {
   const listContainer = document.querySelector('.list-container');
   listContainer.textContent = '';
   const listContent = buildDOMList(project);
   listContainer.appendChild(listContent);
-};
+}
 
 export default displayTodoList;

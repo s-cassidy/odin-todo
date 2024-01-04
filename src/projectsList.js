@@ -1,5 +1,5 @@
-import displayTodoList from './listDisplay';
 import ProjectStorage from './store';
+import Project from './project';
 
 class ProjectsList {
   constructor() {
@@ -17,7 +17,6 @@ class ProjectsList {
     this.list.forEach((project) => {
       if (newCurrentId === project.id) {
         this.currentProject = project;
-        displayTodoList(this.currentProject);
       }
     });
   };

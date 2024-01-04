@@ -33,7 +33,7 @@ function setupForm() {
     if (todoFormData) {
       const todo = new TodoItem(todoFormData);
       projects.currentProject.addTodo(todo);
-      displayTodoList(this);
+      displayTodoList(projects.currentProject);
       new ProjectStorage().save(projects.list);
     }
   });

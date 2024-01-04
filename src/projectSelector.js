@@ -44,6 +44,6 @@ export const initProjectsMenu = function initProjectsMenu() {
   newProjectButton.addEventListener('click', displayNewProjectInput);
   projectsMenu.addEventListener('change', (e) => {
     projects.changeCurrentProject(e.target.value);
-    displayTodoList(this.currentProject);
+    displayTodoList(projects.currentProject);
   });
 };
