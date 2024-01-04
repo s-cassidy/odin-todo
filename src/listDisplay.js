@@ -50,7 +50,7 @@ const constructDOMListEntry = function constructDOMListEntry(todo, project) {
   deleteButton.textContent = 'Delete';
   deleteButton.addEventListener('click', () => {
     project.removeTodo(todo.id);
-    displayTodoList(project);
+    refreshTodoListDisplay(project);
     new ProjectStorage().save(projects.list);
   });
   buttonsContainer.appendChild(deleteButton);
@@ -78,11 +78,11 @@ const buildDOMList = function buildDOMList(project) {
 
 // This function is hoisted as it is passed as a callback
 // to the event listener on the the delete button
-function displayTodoList(project) {
+function refreshTodoListDisplay(project) {
   const listContainer = document.querySelector('.list-container');
   listContainer.textContent = '';
   const listContent = buildDOMList(project);
   listContainer.appendChild(listContent);
 }
 
-export default displayTodoList;
+export default refreshTodoListDisplay;

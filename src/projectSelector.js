@@ -1,5 +1,5 @@
 import projects from './projectsList';
-import displayTodoList from './listDisplay';
+import refreshTodoListDisplay from './listDisplay';
 
 const projectsMenu = document.querySelector('.projects-menu');
 
@@ -44,6 +44,6 @@ export const initProjectsMenu = function initProjectsMenu() {
   newProjectButton.addEventListener('click', displayNewProjectInput);
   projectsMenu.addEventListener('change', (e) => {
     projects.changeCurrentProject(e.target.value);
-    displayTodoList(projects.currentProject);
+    refreshTodoListDisplay(projects.currentProject);
   });
 };

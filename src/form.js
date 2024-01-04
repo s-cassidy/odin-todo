@@ -1,5 +1,5 @@
 import projects from './projectsList';
-import displayTodoList from './listDisplay';
+import refreshTodoListDisplay from './listDisplay';
 import TodoItem from './todoitem';
 import ProjectStorage from './store';
 
@@ -33,7 +33,7 @@ function setupForm() {
     if (todoFormData) {
       const todo = new TodoItem(todoFormData);
       projects.currentProject.addTodo(todo);
-      displayTodoList(projects.currentProject);
+      refreshTodoListDisplay(projects.currentProject);
       new ProjectStorage().save(projects.list);
     }
   });
