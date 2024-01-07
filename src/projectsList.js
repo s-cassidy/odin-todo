@@ -3,9 +3,15 @@ import Project from './project';
 
 class ProjectsList {
   constructor() {
-    const defaultProject = new Project();
-    this.list = [defaultProject];
-    this.currentProject = defaultProject;
+    const storedProjectsList = new ProjectStorage().retrieve();
+    if (storedProjectsList) {
+      this.list = storedProjectsList.map(
+        (p) => new Project(p.name, p.todoList, p.id)
+      );
+      this.currentProject = this.list[0];
+    } else {
+      this.reset();
+    }
   }
 
   removeProject = function removeProject(idForRemoval) {
@@ -27,6 +33,12 @@ class ProjectsList {
     this.changeCurrentProject(newProject.id);
     new ProjectStorage().save(this.list);
     return newProject;
+  };
+
+  reset = function reset() {
+    const defaultProject = new Project('Default');
+    this.list = [defaultProject];
+    this.currentProject = this.list[0];
   };
 }
 

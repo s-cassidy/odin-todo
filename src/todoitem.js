@@ -1,15 +1,22 @@
-import projects from './projectsList';
-
-class TodoItem {
-  constructor(todoFormData) {
-    this.title = todoFormData.get('title');
-    this.description = todoFormData.get('description');
-    this.priority =
+export const unpackTodoFormData = function unpackTodoFormData(todoFormData) {
+  return {
+    title: todoFormData.get('title'),
+    description: todoFormData.get('description'),
+    priority:
       todoFormData.get('priority') === 'none'
         ? ''
-        : todoFormData.get('priority');
-    this.id = Math.random().toString(16).slice(2);
-    this.isDone = false;
+        : todoFormData.get('priority'),
+    id: Math.random().toString(16).slice(2),
+    isDone: false,
+  };
+};
+export class TodoItem {
+  constructor(todoData) {
+    this.title = todoData.title;
+    this.description = todoData.description;
+    this.priority = todoData.priority;
+    this.id = todoData.id;
+    this.isDone = todoData.isDone;
   }
 
   setDone = function setDone() {
@@ -20,5 +27,3 @@ class TodoItem {
     this.isDone = false;
   };
 }
-
-export default TodoItem;

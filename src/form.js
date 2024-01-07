@@ -1,6 +1,6 @@
 import projects from './projectsList';
 import refreshTodoListDisplay from './listDisplay';
-import TodoItem from './todoitem';
+import { unpackTodoFormData, TodoItem } from './todoitem';
 import ProjectStorage from './store';
 
 function setupForm() {
@@ -31,8 +31,9 @@ function setupForm() {
   submitButton.addEventListener('click', () => {
     const todoFormData = runSubmit();
     if (todoFormData) {
-      const todo = new TodoItem(todoFormData);
-      projects.currentProject.addTodo(todo);
+      const todoData = unpackTodoFormData(todoFormData);
+      const todoObject = new TodoItem(todoData);
+      projects.currentProject.addTodo(todoObject);
       refreshTodoListDisplay(projects.currentProject);
       new ProjectStorage().save(projects.list);
     }

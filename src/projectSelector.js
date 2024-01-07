@@ -3,7 +3,7 @@ import refreshTodoListDisplay from './listDisplay';
 
 const projectsMenu = document.querySelector('.projects-menu');
 
-export const updateProjectsMenu = function updateProjectsMenu() {
+export const refreshProjectsMenu = function refreshProjectsMenu() {
   projectsMenu.textContent = '';
   projects.list.forEach((project) => {
     const menuItem = document.createElement('option');
@@ -34,7 +34,7 @@ export const initProjectsMenu = function initProjectsMenu() {
           newProjectNameInput.value
         );
         newProjectForm.textContent = '';
-        updateProjectsMenu();
+        refreshProjectsMenu();
         projectsMenu.value = newProject.id;
       }
     });
