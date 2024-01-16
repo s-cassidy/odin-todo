@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import ProjectStorage from './store';
 import projects from './projectsList';
 
@@ -13,6 +14,8 @@ const constructDOMListEntry = function constructDOMListEntry(todo, project) {
   const titleText = document.createElement('h2');
   const descriptionText = document.createElement('p');
   const descriptionContainer = document.createElement('div');
+  const dateContainer = document.createElement('div');
+  const dateText = document.createElement('p');
   const buttonsContainer = document.createElement('span');
   const deleteButton = document.createElement('button');
 
@@ -36,16 +39,24 @@ const constructDOMListEntry = function constructDOMListEntry(todo, project) {
     checkbox.checked = true;
     listItem.classList.add('task-done');
   }
+
+  titleText.textContent = todo.title;
+  titleContainer.appendChild(titleText);
+
+  descriptionText.textContent = todo.description;
+  descriptionContainer.appendChild(descriptionText);
+
   priorityText.textContent = todo.priority;
   priorityContainer.appendChild(priorityText);
 
-  titleText.textContent = todo.title;
-  descriptionText.textContent = todo.description;
+  dateText.textContent = format(todo.dueDate, 'dd/MM/yyyy');
+  dateContainer.appendChild(dateText);
 
   titleContainer.appendChild(titleText);
   descriptionContainer.appendChild(descriptionText);
   textContainer.appendChild(titleContainer);
   textContainer.appendChild(descriptionContainer);
+  textContainer.appendChild(dateContainer);
 
   deleteButton.textContent = 'Delete';
   deleteButton.addEventListener('click', () => {

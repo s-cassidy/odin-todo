@@ -31,6 +31,7 @@ function setupForm() {
   submitButton.addEventListener('click', () => {
     const todoFormData = runSubmit();
     if (todoFormData) {
+      console.log(todoFormData.get('due-date'));
       const todoData = unpackTodoFormData(todoFormData);
       const todoObject = new TodoItem(todoData);
       projects.currentProject.addTodo(todoObject);
