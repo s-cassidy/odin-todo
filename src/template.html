@@ -11,37 +11,50 @@
 <body>
 
   <div class="content">
-    <form id="todo-form" class="input-form">
-      <label for="todo-title">Title</label>
-      <input type="text" name="title" id="todo-title" value="" placeholder="Feed the budgie" required>
-      <label for="todo-description">Description</label>
-      <input type="text" name="description" id="todo-description" value="">
-      <span <label for="todo-priority">Priority</label>
-        <select name="priority" id="todo-priority">
-          <option value="none">None</option>
-          <option value="A">A</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
-          <option value="D">D</option>
+    <div class="header-row">
+      <h1 class="heading">Rise & Shine </h1>
+      <span class="subheading">Todo App </span>
+    </div>
+    <div class="app">
+      <form id="todo-form" class="input-form">
+        <label for="todo-title">Title</label>
+        <input type="text" name="title" id="todo-title" value="" placeholder="Feed the budgie" required>
+        <label for="todo-description">Description</label>
+        <input type="text" name="description" id="todo-description" value="">
+        <span <label for="todo-priority">Priority</label>
+          <select name="priority" id="todo-priority">
+            <option value="none">None</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select>
+          <button type="button" id="submit-button">Submit</button>
+        </span>
+      </form>
+      <div class="projects-container">
+        <label for="projects-menu">Project:</label>
+        <select class="projects-menu" id="projects-menu">
         </select>
         <label for="due-date">Due</label>
         <input type="date" id="due-date" name="due-date" />
         <button type="button" id="submit-button">Submit</button>
-      </span>
-    </form>
-    <div class="projects-container">
-      <label for="projects-menu">Project:</label>
-      <select class="projects-menu" id="projects-menu">
-      </select>
-      <button type="button" class="new-project">+</button>
-      <form class="new-project-form"></form>
+        <div class="projects-container">
+          <label for="projects-menu">Project:</label>
+          <select class="projects-menu" id="projects-menu">
+          </select>
+          <button type="button" class="new-project">+</button>
+          <form class="new-project-form"></form>
+        </div>
+        <span class="sun">
+          <div class="sand">
+          </div>
+          <button type="button" class="reset-button">Reset</button>
+        </span>
+      </div>
     </div>
-    <div class="list-container">
-
-      <button type="button" class="reset-button">Reset</button>
-    </div>
-    <button type="button" class="reset-button">Reset</button>
   </div>
+
 
 </body>
 
