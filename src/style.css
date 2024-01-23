@@ -1,3 +1,141 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Styling begins here */
+
 body {
   display: flex;
   height: 100vh;
@@ -9,6 +147,8 @@ body {
       rgba(255, 255, 255, 1) 100%);
   margin: 0;
   padding: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .header {
@@ -16,11 +156,15 @@ body {
 }
 
 .app {
+  width: 60%;
+}
+
+.form-box {
   background-color: lightblue;
-  padding: 10px;
-  width: 30%;
-  border-radius: 15px;
-  border: white solid 2px;
+  padding: 15px;
+  width: 100%;
+  /* border-radius: 15px; */
+  /* border: white solid 2px; */
 }
 
 .content {
@@ -31,11 +175,25 @@ body {
   width: 100%;
 }
 
+.app>* {
+  margin: 10px;
+}
+
 .header-row {
   width: 100vw;
   background-color: rgba(255, 254, 157, 1);
   color: rgba(252, 85, 70, 1);
   margin-bottom: 50px;
+}
+
+.projects-container {
+  margin-bottom: 10px;
+}
+
+input {
+  background-color: transparent;
+  border: 2px solid white;
+  border-start-end-radius: 50%;
 }
 
 .invalid {
@@ -47,37 +205,14 @@ body {
   flex-direction: column;
 }
 
+.list-container {
+  width: 100%;
+  background-color: lightgrey;
+}
+
 .todo-item-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.sand {
-  background: rgb(198, 175, 94);
-  background: linear-gradient(3deg,
-      rgba(198, 175, 94, 1) 0%,
-      rgba(255, 254, 157, 1) 55%);
-  z-index: 2;
-  position: fixed;
-  bottom: 0;
-  left: -50vw;
-  height: 150px;
-  width: 150vw;
-  margin: 0;
-  padding: 0;
-}
-
-.sun {
-  z-index: 1;
-  display: inline-block;
-  height: 250px;
-  width: 250px;
-  position: fixed;
-  bottom: 0vh;
-  border-radius: 100%;
-  background: rgb(251, 185, 63);
-  background: radial-gradient(circle,
-      rgba(251, 185, 63, 1) 23%,
-      rgba(252, 85, 70, 1) 100%);
+  background-color: white;
 }
