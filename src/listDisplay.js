@@ -49,7 +49,9 @@ const constructDOMListEntry = function constructDOMListEntry(todo, project) {
   priorityText.textContent = todo.priority;
   priorityContainer.appendChild(priorityText);
 
-  dateText.textContent = format(todo.dueDate, 'dd/MM/yyyy');
+  if (todo.dueDate) {
+    dateText.textContent = format(todo.dueDate, 'dd/MM/yyyy');
+  }
   dateContainer.appendChild(dateText);
 
   titleContainer.appendChild(titleText);

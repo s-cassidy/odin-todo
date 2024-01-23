@@ -6,7 +6,9 @@ export const unpackTodoFormData = function unpackTodoFormData(todoFormData) {
       todoFormData.get('priority') === 'none'
         ? ''
         : todoFormData.get('priority'),
-    dueDate: new Date(todoFormData.get('due-date')),
+    dueDate: todoFormData.get('due-date')
+      ? new Date(todoFormData.get('due-date'))
+      : '',
     id: Math.random().toString(16).slice(2),
     isDone: false,
   };
