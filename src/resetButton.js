@@ -9,5 +9,5 @@ resetButton.addEventListener('click', () => {
   new ProjectStorage().clear();
   projects.reset();
   refreshProjectsMenu();
-  refreshTodoListDisplay(projects.list[0]);
+  refreshTodoListDisplay(projects.currentProject);
 });
