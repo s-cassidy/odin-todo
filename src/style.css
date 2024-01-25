@@ -162,9 +162,6 @@ body {
 .form-box {
   background-color: lightblue;
   padding: 15px;
-  width: 100%;
-  /* border-radius: 15px; */
-  /* border: white solid 2px; */
 }
 
 .content {
@@ -193,6 +190,9 @@ h1 {
 }
 
 .projects-container {
+  display: flex;
+  align-items: center;
+  gap: 3px;
   margin-bottom: 10px;
 }
 
@@ -201,7 +201,10 @@ h1 {
   color: #fff;
   cursor: pointer;
   font-size: 1.5rem;
-  padding: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 input {
@@ -241,19 +244,45 @@ button {
   border-color: red;
 }
 
+.todo-title {
+  font-size: 1.5rem;
+}
+
 .input-form {
   display: flex;
   flex-direction: column;
 }
 
 .list-container {
-  width: 100%;
   background-color: lightgrey;
 }
 
+.todo-description-container,
+.todo-date-container {
+  color: grey;
+}
+
 .todo-item-container {
-  display: flex;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 50px 50px 1fr 60px;
   align-items: center;
-  justify-content: space-between;
   background-color: white;
+}
+
+.todo-priority-container {
+  font-size: 2rem;
+  font-weight: 550;
+}
+
+.todo-checkbox-container {
+  padding: 15px;
+}
+
+.todo-text-container {
+  flex: 4 0 auto;
+}
+
+.todo-button-container {
+  padding: 5px;
 }

@@ -17,10 +17,16 @@ const constructDOMListEntry = function constructDOMListEntry(todo, project) {
   const descriptionContainer = document.createElement('div');
   const dateContainer = document.createElement('div');
   const dateText = document.createElement('p');
-  const buttonsContainer = document.createElement('span');
+  const buttonContainer = document.createElement('span');
   const deleteButton = document.createElement('button');
 
   textContainer.classList.add('todo-text-container');
+  dateContainer.classList.add('todo-date-container');
+  buttonContainer.classList.add('todo-button-container');
+  checkboxContainer.classList.add('todo-checkbox-container');
+  priorityContainer.classList.add('todo-priority-container');
+  descriptionContainer.classList.add('todo-description-container');
+  dateContainer.classList.add('todo-date-container');
   titleText.classList.add('todo-title');
 
   checkbox.setAttribute('type', 'checkbox');
@@ -69,12 +75,12 @@ const constructDOMListEntry = function constructDOMListEntry(todo, project) {
     refreshTodoListDisplay(project);
     new ProjectStorage().save(projects.list);
   });
-  buttonsContainer.appendChild(deleteButton);
+  buttonContainer.appendChild(deleteButton);
 
   itemContainer.appendChild(checkboxContainer);
   itemContainer.appendChild(priorityContainer);
   itemContainer.appendChild(textContainer);
-  itemContainer.appendChild(buttonsContainer);
+  itemContainer.appendChild(buttonContainer);
 
   itemContainer.classList.add('todo-item-container');
   listItem.appendChild(itemContainer);
