@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+import deleteSVG from './assets/delete.svg';
 import ProjectStorage from './store';
 import projects from './projectsList';
 
@@ -60,7 +61,9 @@ const constructDOMListEntry = function constructDOMListEntry(todo, project) {
   textContainer.appendChild(descriptionContainer);
   textContainer.appendChild(dateContainer);
 
-  deleteButton.textContent = 'Delete';
+  const deleteIcon = document.createElement('img');
+  deleteIcon.src = deleteSVG;
+  deleteButton.appendChild(deleteIcon);
   deleteButton.addEventListener('click', () => {
     project.removeTodo(todo.id);
     refreshTodoListDisplay(project);
