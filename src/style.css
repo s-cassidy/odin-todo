@@ -190,19 +190,6 @@ body {
   margin: 10px;
 }
 
-.header-row {
-  display: flex;
-  justify-content: space-between;
-  align-self: normal;
-  width: 600px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  border-radius: 30px;
-  background-color: #fffd7e;
-  color: rgba(252, 85, 70, 1);
-  margin-bottom: 50px;
-}
-
 h1 {
   font-size: 3rem;
   font-family: overpass, sans-serif;
