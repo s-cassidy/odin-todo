@@ -159,7 +159,12 @@ body {
 }
 
 .app {
+  margin-top: 80px;
   width: 100%;
+}
+
+.reset-container {
+  text-align: right;
 }
 
 .form-box {
@@ -169,8 +174,7 @@ body {
 
 .reset-button {
   max-height: 30px;
-  align-self: end;
-  margin: 20px;
+  margin-top: 20px;
 }
 
 .content {
@@ -199,12 +203,11 @@ body {
   margin-bottom: 50px;
 }
 
-.heading-and-sub {}
-
 h1 {
-  font-size: 5rem;
+  font-size: 3rem;
+  font-family: overpass, sans-serif;
+  margin-bottom: 8px;
   font-weight: 700;
-  margin: 15px;
 }
 
 .projects-container {
