@@ -1,8 +1,9 @@
+@import url('https://overpass-30e2.kxcdn.com/overpass.css');
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
-
 html,
 body,
 div,
@@ -137,7 +138,8 @@ table {
 /* Styling begins here */
 
 body {
-  display: flex;
+  display: grid;
+  grid-template-columns: 15vw 1fr 15vw;
   height: 100vh;
   flex-direction: column;
   background: rgb(94, 133, 198);
@@ -151,12 +153,13 @@ body {
   font-size: 1.2rem;
 }
 
-.header {
-  display: flex;
+.heading {
+  font-family: overpass, sans-serif;
+  padding: 10px;
 }
 
 .app {
-  width: 60%;
+  width: 100%;
 }
 
 .form-box {
@@ -164,7 +167,14 @@ body {
   padding: 15px;
 }
 
+.reset-button {
+  max-height: 30px;
+  align-self: end;
+  margin: 20px;
+}
+
 .content {
+  align-self: start;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,15 +187,23 @@ body {
 }
 
 .header-row {
-  width: 100vw;
-  background-color: rgba(255, 254, 157, 1);
+  display: flex;
+  justify-content: space-between;
+  align-self: normal;
+  width: 600px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-radius: 30px;
+  background-color: #fffd7e;
   color: rgba(252, 85, 70, 1);
   margin-bottom: 50px;
 }
 
+.heading-and-sub {}
+
 h1 {
   font-size: 5rem;
-  font-weight: 900;
+  font-weight: 700;
   margin: 15px;
 }
 
@@ -277,6 +295,10 @@ button {
 
 .todo-checkbox-container {
   padding: 15px;
+}
+
+.task-done .todo-text-container {
+  text-decoration-line: line-through;
 }
 
 .todo-text-container {
