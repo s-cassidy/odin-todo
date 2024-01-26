@@ -165,7 +165,7 @@ body {
 }
 
 .app {
-  margin-top: 80px;
+  margin-top: 5vh;
   width: 100%;
 }
 
@@ -176,6 +176,10 @@ body {
 .form-box {
   background-color: lightblue;
   padding: 15px;
+}
+
+.due-date-field {
+  white-space: nowrap;
 }
 
 .reset-button {
